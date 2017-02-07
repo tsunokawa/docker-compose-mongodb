@@ -1,27 +1,38 @@
 version: '2'
+
 services:
-  mongodb1:
-    container_name: mongodb1
-    hostname: mongodb1
-    image: mongo
+  mongodb01:
+    container_name: mongodb01
+    image: mongo:latest
     volumes:
-      - ./mongodb/node1:/var/lib/mongodb
+      - ./mongodb01:/data/db
     ports:
-      - 27017
-  mongodb2:
-    container_name: mongodb2
-    hostname: mongodb2
-    image: mongo
+      - 27017:27017
+    command: [mongod, --bind_ip, 0.0.0.0, --replSet, my-mongo-set]
+    domainname: mongodb
+
+  mongodb02:
+    container_name: mongodb02
+    image: mongo:latest
     volumes:
-      - ./mongodb/node2:/var/lib/mongodb
+      - ./mongodb02:/data/db
     ports:
-      - 27017
-  mongodb3:
-    container_name: mongodb3
-    hostname: mongodb3
-    image: mongo
+      - 27018:27017
+    command: [mongod, --bind_ip, 0.0.0.0, --replSet, my-mongo-set]
+    domainname: mongodb
+
+  mongodb03:
+    container_name: mongodb03
+    image: mongo:latest
     volumes:
-      - ./mongodb/node3:/var/lib/mongodb
+      - ./mongodb03:/data/db
     ports:
-      - 27017
+      - 27019:27017
+    command: [mongod, --bind_ip, 0.0.0.0, --replSet, my-mongo-set]
+    domainname: mongodb
+
+networks:
+  default:
+    external:
+      name: mongodb
 

@@ -4,4 +4,7 @@
 *.bak
 *~
 .*.swp
-mongodb
+mongodb01/*
+mongodb02/*
+mongodb03/*
+
