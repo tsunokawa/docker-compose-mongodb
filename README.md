@@ -43,3 +43,18 @@ config =
 rs.initiate(config);
 ```
 
+## 停止
+```
+docker-compose stop
+```
+
+## 削除
+```
+docker-compose rm
+```
+
+## ネットワーク設定削除
+```
+docker network rm mongodb
+```
+
