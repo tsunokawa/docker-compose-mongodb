@@ -7,7 +7,7 @@ docker network create mongodb
 
 ## 起動
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 ## mongoに接続
@@ -41,6 +41,11 @@ config =
 ## レプリカセットの設定を有効化
 ```
 rs.initiate(config);
+```
+
+## レプリカセットの状態を確認
+```
+rs.status()
 ```
 
 ## 停止
